@@ -1,0 +1,14 @@
+{
+    "bookingid": 1334,
+    "booking": {
+        "firstname": "Melida",
+        "lastname": "pandey",
+        "totalprice": 456,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2013-02-23",
+            "checkout": "2013-02-23"
+        },
+        "additionalneeds": "breakfast"
+    }
+}
