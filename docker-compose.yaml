@@ -5,6 +5,3 @@ services:
     container_name: automationtest
     build: .
     
-    
-    
-
