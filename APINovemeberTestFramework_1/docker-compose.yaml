@@ -1,0 +1,8 @@
+version: "3"
+services:
+  automation:
+    image: automation-test:latest
+    container_name: automationtest
+    build: .
+    
+
