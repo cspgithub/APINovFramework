@@ -1,4 +1,4 @@
-FROM maven:latest
+FROM shekhardocker2020/apiframworkwithdependecis 
 COPY src  home/apiframework/src
 COPY /test-output/index.html  home/apiframework/test-output/index.html
 COPY pom.xml  home/apiframework/pom.xml
