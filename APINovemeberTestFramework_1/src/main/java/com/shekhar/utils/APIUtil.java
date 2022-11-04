@@ -15,6 +15,10 @@ public final class APIUtil {
 	public static String readJsonAndreturnAsString(String filepath) throws IOException {
 		return new String(Files.readAllBytes(Paths.get(filepath)));
 	}
+	
+	public static String readSchemaAndreturnAsString(String filepath) throws IOException {
+		return new String(Files.readAllBytes(Paths.get(filepath)));
+	}
 
 	public static void storeStringAsJsonFile(String filepath, Response response) throws IOException {
 		Files.write(Paths.get(filepath), response.asByteArray());

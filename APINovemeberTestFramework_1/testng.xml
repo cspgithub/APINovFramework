@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test" parallel="methods">
     <classes>
-      <class name="com.shekhar.tests.POSTTests"/>
+    <!--   <class name="com.shekhar.tests.POSTTests"/> -->
       <class name="com.shekhar.tests.GetTests"/>
     </classes>
   </test> <!-- Test -->

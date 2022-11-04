@@ -11,5 +11,8 @@ public class FrameworkConstants {
 	
 	private static @Getter final String configFilepath = System.getProperty("user.dir")
 			+ "/src/test/resources/config.properties";
+	
+	private static @Getter final String schemaFilepath = System.getProperty("user.dir")
+			+ "/src/test/resources/schema/schema.json";
 
 }

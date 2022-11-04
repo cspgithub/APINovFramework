@@ -12,6 +12,7 @@ import com.shekhar.requestbuilder.RequestBuilder;
 import com.shekhar.utils.APIUtil;
 import com.shekhar.utils.FrameworkTestData;
 
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 
 public class POSTTests {
@@ -30,21 +31,29 @@ public class POSTTests {
 
 		response.prettyPrint();
 		Assert.assertEquals(response.getStatusCode(), 200);
-		
-		//store recvd response @location
+		int id = response.jsonPath().getInt("bookingid");
+
+		// store recvd response @location
 		APIUtil.storeStringAsJsonFile(FrameworkConstants.getResponseJsonFolderpath(), response);
-		
-		//to do
-		//dataprovider-https://github.com/mfaisalkhatri/rest-assured-examples/blob/master/src/test/java/io/github/mfaisalkhatri/TestPostRequests.java
-		//schema validation
+
+		// to do
+		// dataprovider-https://github.com/mfaisalkhatri/rest-assured-examples/blob/master/src/test/java/io/github/mfaisalkhatri/TestPostRequests.java
+		// schema validation
+		response.then().body(JsonSchemaValidator
+				.matchesJsonSchema(APIUtil.readSchemaAndreturnAsString(FrameworkConstants.getSchemaFilepath())));
+//put--update
+		bk.setLastname("pandeyyyyy");
+		response = RequestBuilder.buildRequestForPOSTRequest().pathParam("bookingid", id).body(bk)
+				.put("/booking/{bookingid}");
+		response.prettyPrint();
+		Assert.assertEquals(response.getStatusCode(), 200);
 	}
-	
+
 	@Test
 
 	public void postCallUsingExternalFileTest() throws IOException {
-		
-		Response response = RequestBuilder
-				.buildRequestForPOSTRequest()
+
+		Response response = RequestBuilder.buildRequestForPOSTRequest()
 				.body(APIUtil.readJsonAndreturnAsString(FrameworkConstants.getRequestJsonFolderpath()))
 				.post("/booking");
 		response.prettyPrint();
