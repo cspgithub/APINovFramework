@@ -4,5 +4,6 @@ services:
     image: automation-test:latest
     container_name: automationtest
     build: .
+    dockerfile: Dockerfile
     
 
