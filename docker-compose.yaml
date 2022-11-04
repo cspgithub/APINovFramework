@@ -4,4 +4,6 @@ services:
     image: automation-test:latest
     container_name: automationtest
     build: .
+    volumes:
+      - ./APINovemeberTestFramework_1/test-output:/APINovemeberTestFramework_1/test-output
     
